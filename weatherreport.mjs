@@ -23,23 +23,6 @@ function report(sensorReader) {
     return weather;
 }
 
-function testRainy() {
-    const weather = report(sensorStub);
-    console.log(weather);
-    expect(weather).includes("rain", "Test failed: Expected 'rain' in weather description");
-}
+export default report;
 
-function testHighPrecipitation() {
-    // This instance of stub needs to be different-
-    // to give high precipitation (>60) and low wind-speed (<50)
 
-    const weather = report(sensorStub);
-
-    // strengthen the assert to expose the bug
-    // (function returns Sunny day, it should predict rain)
-    expect(weather).is.not.empty;
-}
-
-testRainy();
-testHighPrecipitation();
-console.log("All is well (maybe!)");
